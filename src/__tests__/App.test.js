@@ -1,6 +1,9 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "../components/App";
+import '@testing-library/jest-dom';
+
+
 // ✅ Mock fetch globally
 beforeEach(() => {
   global.fetch = jest.fn(() =>
@@ -32,6 +35,10 @@ test("displays question prompts after fetching", async () => {
   render(<App />);
   fireEvent.click(screen.getByText("View Questions"));
 
-  expect(await screen.findByText("lorem testum 1")).toBeInTheDocument();
-  expect(await screen.findByText("lorem testum 2")).toBeInTheDocument();
+  expect(
+    await screen.findByText("Prompt: lorem testum 1")
+  ).toBeInTheDocument();
+  expect(
+    await screen.findByText("Prompt: lorem testum 2")
+  ).toBeInTheDocument();
 });
