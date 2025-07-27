@@ -7,7 +7,7 @@ function App() {
   const [page, setPage] = useState("List");
   const [questions, setQuestions] = useState([]);
 
-  // ✅ Fetch questions when app loads
+  // ✅ Fetch questions when app loadss
   useEffect(() => {
     fetch("http://localhost:4000/questions")
       .then((r) => r.json())
